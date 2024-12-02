@@ -1,18 +1,18 @@
 import java.awt.Color;
 
 /**
- * An image filter to remove color from an image.
+ * An image filter to show the green channel of the image. Sets all RGB values to their green value. 
  * 
- * @author Michael Kölling and David J. Barnes.
- * @version 1.0
+ * @author Jeff Kolvites
+ * @version 11/26/24
  */
-public class GrayScaleFilter extends Filter
+public class GreenChannelFilter extends Filter
 {
     /**
-     * Constructor for objects of class GrayScaleFilter.
+     * Constructor for objects of class GreenChannelFilter.
      * @param name The name of the filter.
      */
-    public GrayScaleFilter(String name)
+    public GreenChannelFilter(String name)
     {
         super(name);
     }
@@ -29,8 +29,8 @@ public class GrayScaleFilter extends Filter
         for(int y = 0; y < height; y++) {
             for(int x = 0; x < width; x++) {
                 Color pix = image.getPixel(x, y);
-                int avg = (pix.getRed() + pix.getGreen() + pix.getBlue()) / 3;
-                image.setPixel(x, y, new Color(avg, avg, avg));
+                int green = (pix.getGreen());
+                image.setPixel(x, y, new Color(green, green, green));
             }
         }
     }
